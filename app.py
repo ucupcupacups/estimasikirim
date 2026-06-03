@@ -70,7 +70,7 @@ kota_pilihan = st.selectbox(
 # INPUT TANGGAL KIRIM
 # ======================
 tanggal_kirim = st.date_input(
-    "Tanggal Kirim"
+    "Masukan Tanggal Kirim"
 )
 
 # ======================
