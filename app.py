@@ -92,9 +92,7 @@ if kota_pilihan:
     ">
         📍 Kota Tujuan : {kota_pilihan}
     </div>
-    <div>
-         ⚠️ Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih
-    </div>
+
     """, unsafe_allow_html=True)
 
 # ======================
@@ -188,6 +186,9 @@ if kota_pilihan:
         hide_index=True,
         use_container_width=True
     )
+    <div>
+        ⚠️ Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih
+    </div>
 
 # ======================
 # FOOTER
