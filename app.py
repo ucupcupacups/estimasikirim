@@ -122,7 +122,7 @@ def hitung_tanggal_tiba(estimasi, tanggal_kirim):
 if kota_pilihan:
 
     with st.spinner("Memuat estimasi terbaru..."):
-        time.sleep(0.4)
+        time.sleep(0.7)
 
     st.success(f"✅ Data estimasi untuk {kota_pilihan} berhasil dimuat")
 
