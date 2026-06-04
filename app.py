@@ -92,7 +92,7 @@ if kota_pilihan:
         📍 Kota Tujuan : {kota_pilihan}
     </div>
     <div> 
-         ⚠️ Data estimasi dapat berubah sewaktu-waktu sesuai pembaruan operasional   
+         ⚠️ Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih  
     </div>
     """, unsafe_allow_html=True)
 
