@@ -187,7 +187,7 @@ if kota_pilihan:
         use_container_width=True
     )
     <div>
-        ⚠️ Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih
+        Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih
     </div>
 
 # ======================
