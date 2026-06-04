@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import timedelta
 import re
+import time
 
 # ======================
 # KONFIGURASI HALAMAN
@@ -91,8 +92,8 @@ if kota_pilihan:
     ">
         📍 Kota Tujuan : {kota_pilihan}
     </div>
-    <div> 
-         ⚠️ Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih  
+    <div>
+         ⚠️ Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih
     </div>
     """, unsafe_allow_html=True)
 
@@ -121,6 +122,11 @@ def hitung_tanggal_tiba(estimasi, tanggal_kirim):
 # TAMPILKAN HASIL
 # ======================
 if kota_pilihan:
+
+    with st.spinner("Memuat estimasi terbaru..."):
+        time.sleep(0.4)
+
+    st.success(f"✅ Data estimasi untuk {kota_pilihan} berhasil dimuat")
 
     row = df[df["Nama_Kota"] == kota_pilihan].iloc[0]
 
