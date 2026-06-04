@@ -91,6 +91,9 @@ if kota_pilihan:
     ">
         📍 Kota Tujuan : {kota_pilihan}
     </div>
+    <div> 
+         Data estimasi dapat berubah sewaktu-waktu sesuai pembaruan operasional   
+    </div>
     """, unsafe_allow_html=True)
 
 # ======================
