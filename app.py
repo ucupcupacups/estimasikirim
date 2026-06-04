@@ -197,8 +197,6 @@ st.markdown("""
     color:#5D4037;
     font-size:14px;
 ">
-    Estimasi Pengiriman Godeliva Gift <br>
-    Data estimasi dapat berubah sewaktu-waktu sesuai pembaruan operasional. <br><br>
     Ruko Aniva Grande G1 No. 7, Gading Serpong, Banten, Medang, Kec. Pagedangan, Kabupaten Tangerang, Banten 15325 <br>
     Copyright © 2024 Godeliva Gift. All rights reserved.
 </div>
