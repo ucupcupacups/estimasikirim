@@ -181,14 +181,23 @@ if kota_pilihan:
         })
     )
 
-    st.dataframe(
-        styled_df,
-        hide_index=True,
-        use_container_width=True
-    )
-    <div>
-        Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih
-    </div>
+st.dataframe(
+    styled_df,
+    hide_index=True,
+    use_container_width=True
+)
+
+st.markdown("""
+<div style="
+    margin-top:10px;
+    text-align:left;
+    color:#8D6E63;
+    font-size:13px;
+    font-style:italic;
+">
+⚠️ Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih.
+</div>
+""", unsafe_allow_html=True)
 
 # ======================
 # FOOTER
