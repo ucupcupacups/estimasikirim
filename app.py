@@ -195,7 +195,7 @@ if kota_pilihan:
         font-size:13px;
         font-style:italic;
     ">
-    ⚠️ Data estimasi yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke titik tengah kota yang dipilih.
+    ⚠️ Data estimasi hari dan harga yang ditampilkan tidak spesifik ke kecamatan tertentu melainkan ke perwakilan kecamatan di tengah kota yang dipilih.
     </div>
     """, unsafe_allow_html=True)
 
