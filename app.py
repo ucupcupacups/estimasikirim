@@ -547,10 +547,9 @@ Contoh:
     """, unsafe_allow_html=True)
 
     ringkasan = f"""
-    ======================================
-    ⏩ Godeliva Gift Serpong ⏪
-    ❖ Estimasi Waktu Pengiriman: ❖
-    ======================================
+======================================
+⏩ Godeliva Gift Serpong ⏪
+❖ Estimasi Waktu Pengiriman: ❖
 ======================================
 Kota Tujuan : {kota_pilihan}
 Tanggal Kirim : {tanggal_kirim.strftime('%d-%m-%Y')}
