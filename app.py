@@ -560,7 +560,7 @@ Berat : {berat} Kg
             f"{hasil.iloc[i]['Layanan']}\n"
             f"-Estimasi : {hasil.iloc[i]['Estimasi']}\n"
             f"-Tiba : {hasil.iloc[i]['Perkiraan Sampai']}\n"
-            f"Harga : {hasil.iloc[i]['Total Harga']}\n\n"
+            f"-Harga : {hasil.iloc[i]['Total Harga']}\n\n"
         )
 
     st.download_button(
