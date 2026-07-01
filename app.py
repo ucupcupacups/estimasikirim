@@ -3,6 +3,9 @@ import pandas as pd
 from datetime import timedelta
 import re
 import time
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
+from io import BytesIO
 
 # ======================
 # KONFIGURASI HALAMAN
@@ -530,49 +533,67 @@ Contoh:
 
 """)
 
-    # ======================
-    # COPY RINGKASAN
-    # ======================
+# ======================
+# DOWNLOAD PDF
+# ======================
 
-    st.markdown("""
-    <div style="
-        margin-top:10px;
-        text-align:left;
-        color:#8D6E63;
-        font-size:13px;
-        font-style:italic;
-    ">
-        Klik tombol di bawah untuk mengunduh ringkasan estimasi pengiriman.
-    </div>
-    """, unsafe_allow_html=True)
+st.markdown("""
+<div style="
+    margin-top:10px;
+    text-align:left;
+    color:#8D6E63;
+    font-size:13px;
+    font-style:italic;
+">
+    Klik tombol di bawah untuk mengunduh ringkasan estimasi pengiriman dalam format PDF.
+</div>
+""", unsafe_allow_html=True)
 
-    ringkasan = f"""
-======================================
-⏩ Godeliva Gift Serpong ⏪
-❖ Estimasi Waktu Pengiriman: ❖
-======================================
-Kota Tujuan : {kota_pilihan}
-Tanggal Kirim : {tanggal_kirim.strftime('%d-%m-%Y')}
-Berat : {berat} Kg
-======================================
+buffer = BytesIO()
 
-"""
+doc = SimpleDocTemplate(buffer)
 
-    for i in range(len(hasil)):
-        ringkasan += (
-            f"{hasil.iloc[i]['Layanan']}\n"
-            f"-Estimasi : {hasil.iloc[i]['Estimasi']}\n"
-            f"-Tiba : {hasil.iloc[i]['Perkiraan Sampai']}\n"
-            f"-Harga : {hasil.iloc[i]['Total Harga']}\n\n"
+styles = getSampleStyleSheet()
+
+story = []
+
+story.append(Paragraph("<b>Estimasi Pengiriman</b>", styles["Title"]))
+
+story.append(Paragraph(f"<b>Kota Tujuan :</b> {kota_pilihan}", styles["Normal"]))
+story.append(Paragraph(f"<b>Tanggal Kirim :</b> {tanggal_kirim.strftime('%d-%m-%Y')}", styles["Normal"]))
+story.append(Paragraph(f"<b>Berat :</b> {berat} Kg", styles["Normal"]))
+story.append(Paragraph("<br/><br/>", styles["Normal"]))
+
+for i in range(len(hasil)):
+
+    story.append(
+        Paragraph(
+            f"""
+            <b>{hasil.iloc[i]['Layanan']}</b><br/>
+            Estimasi : {hasil.iloc[i]['Estimasi']}<br/>
+            Perkiraan Sampai : {hasil.iloc[i]['Perkiraan Sampai']}<br/>
+            Tarif : {hasil.iloc[i]['Tarif']}<br/>
+            Total Harga : {hasil.iloc[i]['Total Harga']}
+            <br/><br/>
+            """,
+            styles["BodyText"]
         )
-
-    st.download_button(
-        "📋 Download Ringkasan (.txt)",
-        data=ringkasan,
-        file_name=f"Estimasi_{kota_pilihan}.txt",
-        mime="text/plain",
-        use_container_width=True
     )
+
+doc.build(story)
+
+pdf = buffer.getvalue()
+
+buffer.close()
+
+st.download_button(
+    "📄 Download Ringkasan PDF",
+    data=pdf,
+    file_name=f"Estimasi_{kota_pilihan}.pdf",
+    mime="application/pdf",
+    use_container_width=True
+)
+
 # ======================
 # FOOTER
 # ======================
