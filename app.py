@@ -559,7 +559,7 @@ story = []
 
 story.append(Paragraph("<b> Godeliva Gift Serpong</b>", styles["Title"]))
 story.append(Paragraph("<b>Estimasi Harga dan Pengiriman</b>", styles["Title"]))
-story.append(Paragraph("<b>==========================================</b>", styles["Normal"]))
+story.append(Paragraph("<b>==========================================</b>", styles["Title"]))
 story.append(Paragraph(f"<b>Kota Tujuan :</b> {kota_pilihan}", styles["Normal"]))
 story.append(Paragraph(f"<b>Tanggal Kirim :</b> {tanggal_kirim.strftime('%d-%m-%Y')}", styles["Normal"]))
 story.append(Paragraph(f"<b>Berat :</b> {berat} Kg", styles["Normal"]))
