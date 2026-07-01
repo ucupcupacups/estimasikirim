@@ -557,12 +557,15 @@ styles = getSampleStyleSheet()
 
 story = []
 
-story.append(Paragraph("<b>Estimasi Pengiriman</b>", styles["Title"]))
+story.append(Paragraph("<b>
+===================================
+Estimasi Pengiriman
+===================================</b>", styles["Title"]))
 
 story.append(Paragraph(f"<b>Kota Tujuan :</b> {kota_pilihan}", styles["Normal"]))
 story.append(Paragraph(f"<b>Tanggal Kirim :</b> {tanggal_kirim.strftime('%d-%m-%Y')}", styles["Normal"]))
 story.append(Paragraph(f"<b>Berat :</b> {berat} Kg", styles["Normal"]))
-story.append(Paragraph("<br/><br/>", styles["Normal"]))
+story.append(Paragraph("=========================================================================", styles["Normal"]))
 
 for i in range(len(hasil)):
 
