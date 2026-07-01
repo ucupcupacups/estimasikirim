@@ -546,7 +546,11 @@ Contoh:
     </div>
     """, unsafe_allow_html=True)
 
-    ringkasan = f"""❖ Estimasi Waktu Pengiriman: ❖
+    ringkasan = f"""
+    ======================================
+    ⏩ Godeliva Gift Serpong ⏪
+    ❖ Estimasi Waktu Pengiriman: ❖
+    ======================================
 ======================================
 Kota Tujuan : {kota_pilihan}
 Tanggal Kirim : {tanggal_kirim.strftime('%d-%m-%Y')}
