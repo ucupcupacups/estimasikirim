@@ -575,7 +575,7 @@ for i in range(len(hasil)):
             Estimasi : {hasil.iloc[i]['Estimasi']}<br/>
             Perkiraan Sampai : {hasil.iloc[i]['Perkiraan Sampai']}<br/>
             Tarif : {hasil.iloc[i]['Tarif']}<br/>
-            Total Harga : {hasil.iloc[i]['Total Harga']}
+            <b>Total Harga<b> : {hasil.iloc[i]['Total Harga']}
             <br/><br/>
             """,
             styles["BodyText"]
