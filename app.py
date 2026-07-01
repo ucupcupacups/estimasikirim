@@ -537,64 +537,64 @@ Contoh:
 # DOWNLOAD PDF
 # ======================
 
-st.markdown("""
-<div style="
-    margin-top:10px;
-    text-align:left;
-    color:#8D6E63;
-    font-size:13px;
-    font-style:italic;
-">
-Klik tombol di bawah untuk mengunduh ringkasan estimasi pengiriman dalam format PDF.
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""
+    <div style="
+        margin-top:10px;
+        text-align:left;
+        color:#8D6E63;
+        font-size:13px;
+        font-style:italic;
+    ">
+    Klik tombol di bawah untuk mengunduh ringkasan estimasi pengiriman dalam format PDF.
+    </div>
+    """, unsafe_allow_html=True)
 
-buffer = BytesIO()
+    buffer = BytesIO()
 
-doc = SimpleDocTemplate(buffer)
+    doc = SimpleDocTemplate(buffer)
 
-styles = getSampleStyleSheet()
+    styles = getSampleStyleSheet()
 
-story = []
+    story = []
 
-story.append(Paragraph("<b>Godeliva Gift Serpong</b>", styles["Title"]))
-story.append(Paragraph("<b>Estimasi Harga dan Pengiriman</b>", styles["Heading2"]))
-story.append(Paragraph("<br/>", styles["Normal"]))
+    story.append(Paragraph("<b>Godeliva Gift Serpong</b>", styles["Title"]))
+    story.append(Paragraph("<b>Estimasi Harga dan Pengiriman</b>", styles["Heading2"]))
+    story.append(Paragraph("<br/>", styles["Normal"]))
 
-story.append(Paragraph(f"<b>Kota Tujuan :</b> {kota_pilihan}", styles["Normal"]))
-story.append(Paragraph(f"<b>Tanggal Kirim :</b> {tanggal_kirim.strftime('%d-%m-%Y')}", styles["Normal"]))
-story.append(Paragraph(f"<b>Berat :</b> {berat} Kg", styles["Normal"]))
-story.append(Paragraph("<br/>", styles["Normal"]))
+    story.append(Paragraph(f"<b>Kota Tujuan :</b> {kota_pilihan}", styles["Normal"]))
+    story.append(Paragraph(f"<b>Tanggal Kirim :</b> {tanggal_kirim.strftime('%d-%m-%Y')}", styles["Normal"]))
+    story.append(Paragraph(f"<b>Berat :</b> {berat} Kg", styles["Normal"]))
+    story.append(Paragraph("<br/>", styles["Normal"]))
 
-for _, row in hasil.iterrows():
+    for _, row in hasil.iterrows():
 
-    story.append(
-        Paragraph(
-            f"""
-<b>{row['Layanan']}</b><br/>
-Estimasi : {row['Estimasi']}<br/>
-Perkiraan Sampai : {row['Perkiraan Sampai']}<br/>
-Tarif : {row['Tarif']}<br/>
-<b>Total Harga :</b> {row['Total Harga']}
-<br/><br/>
-""",
-            styles["BodyText"]
+        story.append(
+            Paragraph(
+                f"""
+    <b>{row['Layanan']}</b><br/>
+    Estimasi : {row['Estimasi']}<br/>
+    Perkiraan Sampai : {row['Perkiraan Sampai']}<br/>
+    Tarif : {row['Tarif']}<br/>
+    <b>Total Harga :</b> {row['Total Harga']}
+    <br/><br/>
+    """,
+                styles["BodyText"]
+            )
         )
+
+    doc.build(story)
+
+    pdf = buffer.getvalue()
+
+    buffer.close()
+
+    st.download_button(
+        "📄 Download Ringkasan PDF",
+        data=pdf,
+        file_name=f"Estimasi_{kota_pilihan}.pdf",
+        mime="application/pdf",
+        use_container_width=True
     )
-
-doc.build(story)
-
-pdf = buffer.getvalue()
-
-buffer.close()
-
-st.download_button(
-    "📄 Download Ringkasan PDF",
-    data=pdf,
-    file_name=f"Estimasi_{kota_pilihan}.pdf",
-    mime="application/pdf",
-    use_container_width=True
-)
 
 # ======================
 # FOOTER
