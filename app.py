@@ -257,7 +257,7 @@ def hitung_jtr(dasar, tambahan, berat):
 
         tarif = (
             f"1-10 Kg : {rupiah(dasar)}\n"
-            f",Berat>10 Kg : +{rupiah(tambahan)}/Kg"
+            f",Berat >10 Kg : +{rupiah(tambahan)}/Kg"
         )
         return tarif, rupiah(total)
 
