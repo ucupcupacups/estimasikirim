@@ -545,7 +545,7 @@ st.markdown("""
     font-size:13px;
     font-style:italic;
 ">
-    Klik tombol di bawah untuk mengunduh ringkasan estimasi pengiriman dalam format PDF.
+Klik tombol di bawah untuk mengunduh ringkasan estimasi pengiriman dalam format PDF.
 </div>
 """, unsafe_allow_html=True)
 
@@ -566,27 +566,27 @@ story.append(Paragraph(f"<b>Tanggal Kirim :</b> {tanggal_kirim.strftime('%d-%m-%
 story.append(Paragraph(f"<b>Berat :</b> {berat} Kg", styles["Normal"]))
 story.append(Paragraph("<br/>", styles["Normal"]))
 
-for i in range(len(hasil)):
+for _, row in hasil.iterrows():
 
     story.append(
         Paragraph(
             f"""
-            <b>{hasil.iloc[i]['Layanan']}</b><br/>
-            Estimasi : {hasil.iloc[i]['Estimasi']}<br/>
-            Perkiraan Sampai : {hasil.iloc[i]['Perkiraan Sampai']}<br/>
-            Tarif : {hasil.iloc[i]['Tarif']}<br/>
-            <b>Total Harga</b> : {hasil.iloc[i]['Total Harga']}
-            <br/><br/>
-            """,
+<b>{row['Layanan']}</b><br/>
+Estimasi : {row['Estimasi']}<br/>
+Perkiraan Sampai : {row['Perkiraan Sampai']}<br/>
+Tarif : {row['Tarif']}<br/>
+<b>Total Harga :</b> {row['Total Harga']}
+<br/><br/>
+""",
             styles["BodyText"]
         )
     )
 
-    doc.build(story)
-    
-    pdf = buffer.getvalue()
-    
-    buffer.close()
+doc.build(story)
+
+pdf = buffer.getvalue()
+
+buffer.close()
 
 st.download_button(
     "📄 Download Ringkasan PDF",
