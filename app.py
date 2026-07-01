@@ -582,11 +582,11 @@ for i in range(len(hasil)):
         )
     )
 
-doc.build(story)
-
-pdf = buffer.getvalue()
-
-buffer.close()
+    doc.build(story)
+    
+    pdf = buffer.getvalue()
+    
+    buffer.close()
 
 st.download_button(
     "📄 Download Ringkasan PDF",
